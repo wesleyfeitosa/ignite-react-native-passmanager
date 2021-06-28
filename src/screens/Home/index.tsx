@@ -43,7 +43,11 @@ export function Home() {
 
   function handleFilterLoginData(search: string) {
     if (search) {
-      const newSearchListData = data.filter(login => login.title.search(search));
+      console.log('SEARCH', search);
+      const newSearchListData = data.filter(login => {
+        console.log('LoginTitle', login.title.search(search)); 
+        return login.title.search(search) > 0;
+      });
 
       setSearchListData(newSearchListData);
     } else {
